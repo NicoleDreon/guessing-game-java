@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-import java.util.InputMismatchException;
+// import java.util.InputMismatchException; // could use specific exception 
 
 /*
 
@@ -34,9 +34,9 @@ public class Game {
       try {
         guess = input.nextInt();
       }
-      catch (InputMismatchException e) {
+      catch (Exception e) {
         String bad_input = input.next();   // need to progress past bad input
-        System.out.println("That's not an integer, try again");
+        System.out.println("That's not an integer, try again.");
         continue;
       }
       

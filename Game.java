@@ -20,7 +20,8 @@ public class Game {
 
     Random rand = new Random();
     int number = rand.nextInt(100);
-
+    
+    // System.out.println("Number is " + number);
     System.out.println("I'm thinking of a number between 1 and 100. What do you think it is?");
     
     int guess = 0;
@@ -30,6 +31,14 @@ public class Game {
       guess = input.nextInt();
       guesses +=1;
       
+      if (guess < 1){
+        System.out.println("Your guess is less than 1. What is your guess between between 1 and 100?");
+        continue;
+      }else if (guess > 100){
+        System.out.println("Your guess is greater than 100. What is your guess between between 1 and 100?");
+        continue;
+      }
+
       if (guess > number) {
       System.out.println("Your guess was too high, try again.");
     } else if (guess < number) {

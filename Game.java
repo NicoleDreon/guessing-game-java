@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.InputMismatchException;
 
 /*
 
@@ -28,8 +29,16 @@ public class Game {
     int guesses = 0;
 
     while (guess != number){
-      guess = input.nextInt();
       guesses +=1;
+      
+      try {
+        guess = input.nextInt();
+      }
+      catch (InputMismatchException e) {
+        String bad_input = input.next();   // need to progress past bad input
+        System.out.println("That's not an integer, try again");
+        continue;
+      }
       
       if (guess < 1){
         System.out.println("Your guess is less than 1. What is your guess between between 1 and 100?");
